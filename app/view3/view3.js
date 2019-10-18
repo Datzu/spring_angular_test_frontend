@@ -27,9 +27,10 @@ angular.module('myApp.view3', ['ngRoute'])
 			    	var responseData = response.data;
 			    	if (responseData) {
 			    		$scope.data = responseData;
-			    	} else {
-			    		$scope.data = "";
 			    	}
+			    })
+			    .catch(function (err) {
+			    	$scope.data = "";
 			    });
 		}
 
