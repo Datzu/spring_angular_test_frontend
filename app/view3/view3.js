@@ -12,13 +12,16 @@ angular.module('myApp.view3', ['ngRoute'])
 .controller('View3Ctrl', [ '$scope', '$http',
 	function($scope, $http) {
 	
+		$scope.init = function() {
+			$scope.userId = "";
+		}
+	
 		$scope.getUser = function() {
-			if ($scope.userId.trim().trim().length === 0) {
+			if ($scope.userId.trim().length === 0) {
 				$scope.data = "";
 			} else {
 				getUser();
 			}
-			//getUser();
 		}
 		
 		function getUser() {

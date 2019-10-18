@@ -1,11 +1,11 @@
-<div ng-controller="View3Ctrl">
+<div ng-controller="View3Ctrl" ng-init="init()">
 	<input type="text" ng-model="userId" ng-change="getUser()" />
 	<div ng-show="data">
 		<p>The ID is {{ data.id }}</p>
 		<p>The name is {{ data.name }}</p>
 		<p>The email is {{ data.email }}</p>
 	</div>
-	<div ng-hide="data">
+	<div ng-hide="userId.length === 0 || data">
 		<p>User not found!</p>
 	</div>
 </div>
