@@ -9,33 +9,35 @@ angular.module('myApp.view3', ['ngRoute'])
   });
 }])
 
-.controller('View3Ctrl', [ '$scope', '$http',
-	function($scope, $http) {
+.controller('View3Ctrl', [ '$http',
+	function($http) {
+
+		var vm = this;
+
+		vm.init = function() {
+			vm.userId = "";
+		};
 	
-		$scope.init = function() {
-			$scope.userId = "";
-		}
-	
-		$scope.getUser = function() {
-			if ($scope.userId.trim().length === 0) {
-				$scope.data = "";
+		vm.getUser = function() {
+			if (vm.userId.trim().length === 0) {
+				vm.data = "";
 			} else {
 				getUser();
 			}
-		}
+		};
 		
 		function getUser() {
-			$http.get('http://localhost:9090/user/' + $scope.userId).
+			$http.get('http://localhost:9090/user/' + vm.userId).
 			    then(function(response) {
 			    	var responseData = response.data;
 			    	if (responseData) {
-			    		$scope.data = responseData;
+			    		vm.data = responseData;
 			    	}
 			    })
 			    .catch(function (err) {
-			    	$scope.data = "";
+			    	vm.data = "";
 			    });
-		}
+		};
 
 	}
 ]);
