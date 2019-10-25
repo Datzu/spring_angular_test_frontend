@@ -19,7 +19,7 @@
         initController();
  
         function initController() {
-			$http.get('http://localhost:9090/user/')
+			$http.get('http://localhost:9090/user')
 				.then(function(response) {
 			    	console.log("OK", response);
 	                vm.user = response.data.name;
@@ -27,17 +27,6 @@
 			    .catch(function (err) {
 			    	console.log("ERROR", err);
 			    });
-			/*
-            $http({
-                url: 'http://localhost:9090/user',
-                method: "GET"
-            }).then(function (response) {
-            	console.log("OK", response);
-                vm.user = response.data.name;
-            }, function (error) {
-                console.log("ERROR", error);
-            });
-            */
         };
  
         $scope.logout = function () {
